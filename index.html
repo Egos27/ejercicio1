@@ -1,8 +1,39 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Ejercicio 1</title>
+<link rel="stylesheet" type="text/css" href="css/estilo.css">  
+  <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="controller.js"></script>
 </head>
-<body>
-<p>Hola mundo </p>
+
+<body ng-app="myApp">
+  <div ng-controller="alumnoController">  
+    <div id="Seleccion" ng-show="Actual!={}">
+    <strong>Nombre:</strong> {{Actual.Nombre}}<br />
+    <strong>Apellido:</strong> {{Actual.Apellido}}</span><br />
+    <strong>DNI:</strong> {{Actual.DNI}}<br />
+    <img  class='fotoGrilla' ng-src='fotos/{{Actual.Foto}}' />
+    <br />
+    </div>
+    <table class='table table-hover table-responsive'>
+      <thead>
+        <tr>
+          <th>  Nombre     </th>
+          <th>  Apellido   </th>
+          <th>  Dni        </th>
+          <th>  Seleccionar     </th>          
+        </tr> 
+      </thead>
+    
+        <tr ng-repeat="per in Personas">
+            <td>{{per.Nombre}}</td>
+            <td>{{per.Apellido}}</td>
+            <td>{{per.DNI}}</td>
+            <td><button class='btn btn-danger' name='Seleccionar' ng-click="ElegirAcual(per.DNI)">Seleccionar</button></td>            
+          </tr>
+ 
+      
+</table>
+  </div>
 </body>
 </html>
